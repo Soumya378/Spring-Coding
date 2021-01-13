@@ -1,0 +1,28 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th></th>
+      <th>Name</th>
+      <th>Unit Price</th>
+      <th>Units in Stock</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- Loop over collection of products-->
+    <tr *ngFor="let tempProduct of products">
+      <td class="align-middle">
+        <img src="{{ tempProduct.imageURL }}" height="50" />
+      </td>
+      <td class="align-middle">{{ tempProduct.name }}</td>
+      <td class="align-middle">{{ tempProduct.unitPrice | currency:'INR' }}</td>
+      <td class="align-middle">{{ tempProduct.unitsInStock }}</td>
+    </tr>
+
+
+    <!--if products empty then display a message-->
+    <div *ngIf="products?.length == 0" class="alert alert-warning col-md-12" role="alert">
+      No Products Found
+    </div>
+  </tbody>
+</table>
